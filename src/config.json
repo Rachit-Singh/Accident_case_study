@@ -10,15 +10,15 @@
         },
 
         "input_file_paths" : {
-            "charges_use": "/Users/ayush.kumar.a.singh/Documents/bq_test/data/Charges_use.csv",
-            "damages_use": "/Users/ayush.kumar.a.singh/Documents/bq_test/data/Damages_use.csv",
-            "endorse_use": "/Users/ayush.kumar.a.singh/Documents/bq_test/data/Endorse_use.csv",
-            "primary_person_use": "/Users/ayush.kumar.a.singh/Documents/bq_test/data/Primary_Person_use.csv",
-            "restrict_use": "/Users/ayush.kumar.a.singh/Documents/bq_test/data/Restrict_use.csv",
-            "units_use_distinct": "/Users/ayush.kumar.a.singh/Documents/bq_test/data/Units_use.csv"
+            "charges_use": "data/Charges_use.csv",
+            "damages_use": "data/Damages_use.csv",
+            "endorse_use": "data/Endorse_use.csv",
+            "primary_person_use": "data/Primary_Person_use.csv",
+            "restrict_use": "data/Restrict_use.csv",
+            "units_use_distinct": "data/Units_use.csv"
         },
 
-        "output_filepath": "/Users/ayush.kumar.a.singh/Documents/bq_test/output/results.txt",
+        "output_filepath": "output/results.txt",
 
         "analysis": [
             "Find the number of crashes (accidents) in which number of males killed are greater than 2?",
