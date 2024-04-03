@@ -1,5 +1,5 @@
 
-## Analysis on vehicle accidents across US
+# Analysis on vehicle accidents across US
 
   
 
@@ -40,7 +40,7 @@ The program uses PySpark to perform analysis. To run the program, execute
 $ spark-submit src/main.py
 ```
 
-### CONFIG
+### Config
 The code uses JSON config. Config format is as follow:
 
 ```JSON
@@ -71,5 +71,5 @@ The code uses JSON config. Config format is as follow:
 }
 ```
 
-### OUTPUT
+### Output
 Output is written to a txt file in the specified directory.
