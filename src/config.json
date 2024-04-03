@@ -1,0 +1,36 @@
+{
+    "config": {
+        "spark_config": {
+            "app_name": "my_app",
+            "master": "local",
+            "system_properties": {
+                "spark.executor.memory": ""
+            },
+            "loglevel": "WARN"
+        },
+
+        "input_file_paths" : {
+            "charges_use": "/Users/ayush.kumar.a.singh/Documents/bq_test/data/Charges_use.csv",
+            "damages_use": "/Users/ayush.kumar.a.singh/Documents/bq_test/data/Damages_use.csv",
+            "endorse_use": "/Users/ayush.kumar.a.singh/Documents/bq_test/data/Endorse_use.csv",
+            "primary_person_use": "/Users/ayush.kumar.a.singh/Documents/bq_test/data/Primary_Person_use.csv",
+            "restrict_use": "/Users/ayush.kumar.a.singh/Documents/bq_test/data/Restrict_use.csv",
+            "units_use_distinct": "/Users/ayush.kumar.a.singh/Documents/bq_test/data/Units_use.csv"
+        },
+
+        "output_filepath": "/Users/ayush.kumar.a.singh/Documents/bq_test/output/results.txt",
+
+        "analysis": [
+            "Find the number of crashes (accidents) in which number of males killed are greater than 2?",
+            "How many two wheelers are booked for crashes?",
+            "Determine the Top 5 Vehicle Makes of the cars present in the crashes in which driver died and Airbags did not deploy.",
+            "Determine number of Vehicles with driver having valid licences involved in hit and run?",
+            "Which state has highest number of accidents in which females are not involved?",
+            "Which are the Top 3rd to 5th VEH_MAKE_IDs that contribute to a largest number of injuries including death?",
+            "For all the body styles involved in crashes, mention the top ethnic user group of each unique body style",
+            "Among the crashed cars, what are the Top 5 Zip Codes with highest number crashes with alcohols as the contributing factor to a crash?",
+            "Count of Distinct Crash IDs where No Damaged Property was observed and Damage Level is above 4 and car avails Insurance",
+            "Determine the Top 5 Vehicle Makes where drivers are charged with speeding related offences, has licensed Drivers, used top 10 used vehicle colours and has car licensed with the Top 25 states with highest number of offences"
+        ]
+    }
+}
