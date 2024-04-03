@@ -28,7 +28,7 @@ Run the following pip command to install required packages
 
 ```bash
 
-pip3  install  -r  requirements.txt
+$ pip3  install  -r  requirements.txt
 ```
 
   
@@ -37,7 +37,7 @@ pip3  install  -r  requirements.txt
 
 The program uses PySpark to perform analysis. To run the program, execute
 ```bash
-spark-submit src/main.py
+$ spark-submit src/main.py
 ```
 
 ### CONFIG
