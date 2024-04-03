@@ -1,10 +1,11 @@
 from utils import SparkUtilities
 from pyspark.sql.functions import col, dense_rank, row_number
 from pyspark.sql.window import Window
+import os
 
 if __name__ == "__main__" :
     # create the class instance
-    spark_utils = SparkUtilities(config_path= "config.json")
+    spark_utils = SparkUtilities(config_path= os.path.join(os.path.dirname(__file__),"config.json"))
 
     # read the config file
     CONFIG = spark_utils.get_config()
