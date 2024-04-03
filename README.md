@@ -28,7 +28,7 @@ Run the following pip command to install required packages
 
 ```bash
 
-$ pip3  install  -r  requirements.txt
+$ pip3 install -r requirements.txt
 ```
 
   
