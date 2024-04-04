@@ -11,12 +11,12 @@ if __name__ == "__main__" :
     CONFIG = spark_utils.get_config()
 
     # read all the files into dataframes
-    charges_use = spark_utils.read_df_from_file(filepath= CONFIG['input_file_paths']['charges_use'])
-    damages_use = spark_utils.read_df_from_file(filepath= CONFIG['input_file_paths']['damages_use'])
-    endorse_use = spark_utils.read_df_from_file(filepath= CONFIG['input_file_paths']['endorse_use'])
-    restrict_use = spark_utils.read_df_from_file(filepath= CONFIG['input_file_paths']['restrict_use'])
-    primary_person_use = spark_utils.read_df_from_file(filepath= CONFIG['input_file_paths']['primary_person_use'], do_caching=True)
-    units_use_distinct = spark_utils.read_df_from_file(filepath= CONFIG['input_file_paths']['units_use_distinct'], do_caching=True, get_distinct=True)
+    charges_use = spark_utils.read_df_from_file(filepath= os.path.join(os.path.dirname(__file__), '..', CONFIG['input_file_paths']['charges_use']))
+    damages_use = spark_utils.read_df_from_file(filepath= os.path.join(os.path.dirname(__file__), '..', CONFIG['input_file_paths']['damages_use']))
+    endorse_use = spark_utils.read_df_from_file(filepath= os.path.join(os.path.dirname(__file__), '..', CONFIG['input_file_paths']['endorse_use']))
+    restrict_use = spark_utils.read_df_from_file(filepath= os.path.join(os.path.dirname(__file__), '..', CONFIG['input_file_paths']['restrict_use']))
+    primary_person_use = spark_utils.read_df_from_file(filepath= os.path.join(os.path.dirname(__file__), '..', CONFIG['input_file_paths']['primary_person_use']), do_caching=True)
+    units_use_distinct = spark_utils.read_df_from_file(filepath= os.path.join(os.path.dirname(__file__), '..', CONFIG['input_file_paths']['units_use_distinct']), do_caching=True, get_distinct=True)
 
 
     ### A1
@@ -50,10 +50,10 @@ if __name__ == "__main__" :
 
     a4 = (primary_person_use.filter("DRVR_LIC_CLS_ID not in ('UNLICENSED', 'UNKNOWN')")
     .join(hit_n_run_units, ['crash_id', 'unit_nbr'])
-    .groupBy([primary_person_use['crash_id'], 'VIN'])
+    .select([primary_person_use['crash_id'], 'VIN'])
+    .distinct()
     .count()
     )
-    a4_count = a4.count()
 
 
     ### A5
@@ -173,7 +173,7 @@ if __name__ == "__main__" :
             "analysis_text": ques,
             "analysis_output": output
         }
-        for idx, ques, output in zip(range(len(CONFIG['analysis'])), CONFIG['analysis'], [a1,a2,a3,a4_count,a5,a6,a7,a8,a9,a10])
+        for idx, ques, output in zip(range(len(CONFIG['analysis'])), CONFIG['analysis'], [a1,a2,a3,a4,a5,a6,a7,a8,a9,a10])
     ]
 
     # unpersist dataframes
