@@ -18,7 +18,7 @@
             "units_use_distinct": "data/Units_use.csv"
         },
 
-        "output_filepath": "output/results.txt",
+        "output_file_path": "output/results.txt",
 
         "analysis": [
             "Find the number of crashes (accidents) in which number of males killed are greater than 2?",

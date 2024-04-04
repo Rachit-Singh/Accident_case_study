@@ -180,4 +180,4 @@ if __name__ == "__main__" :
     units_use_distinct.unpersist()
     primary_person_use.unpersist()
 
-    spark_utils.write_file_from_dfs(output_lst, location=CONFIG['output_filepath'])
+    spark_utils.write_file_from_dfs(output_lst, location=os.path.join(os.path.dirname(__file__), '..', CONFIG['output_file_path']))
