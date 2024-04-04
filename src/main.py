@@ -43,6 +43,7 @@ if __name__ == "__main__" :
     .count()
     .orderBy([col('count').desc(), col("VEH_MAKE_ID")])
     .limit(5)
+    .select("VEH_MAKE_ID")
     )
 
     ### A4
@@ -85,8 +86,8 @@ if __name__ == "__main__" :
     .withColumn("rank",dense_rank().over(Window_Spec))
     .filter("rank in (3,4,5)")
     .withColumnRenamed("sum(inj_death)", "COUNT")
-    .select(["VEH_MAKE_ID", "COUNT"])
     .orderBy("rank")
+    .select(["VEH_MAKE_ID"])
     )
 
 
@@ -113,6 +114,7 @@ if __name__ == "__main__" :
     .count()
     .orderBy(col("count").desc())
     .limit(5)
+    .select("DRVR_ZIP")
     )
 
     ### A9
@@ -165,6 +167,7 @@ if __name__ == "__main__" :
             .count()
             .orderBy(col("count").desc())
             .limit(5)
+            .select("VEH_MAKE_ID")
             )
 
     output_lst = [

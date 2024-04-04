@@ -1,9 +1,9 @@
 from pyspark.sql import SparkSession
+from pyspark import SparkContext
 from pyspark.sql.dataframe import DataFrame 
 # for file handling
 import os
 import json
-from pyspark import SparkContext
 
 
 class SparkUtilities:
