@@ -150,6 +150,8 @@ class SparkUtilities:
         with open(location, "w") as f:
             f.write(data)
 
+        print("\nOutput loaded to file ", location)
+
     
     @staticmethod
     def load_config_file(config_path: str) :
