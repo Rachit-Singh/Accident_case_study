@@ -127,7 +127,6 @@ class SparkUtilities:
         data = ""
         # loop over all the analysis dicts
         for df_dict in df_list :
-            # since the data will be written here, all actions will be performed here
             internal_string = f"\n{df_dict['analysis_id']}\n" + "*"*10 + "\n"
             internal_string += df_dict['analysis_text'] + "\n\nRESULT:\n\n"
 

@@ -38,10 +38,10 @@ if __name__ == "__main__" :
 
     ### A3
     a3 = (primary_person_use.filter((col('DEATH_CNT') > 0) & (col('PRSN_TYPE_ID') == 'DRIVER') & (col('PRSN_AIRBAG_ID') == 'NOT DEPLOYED'))
-    .join(units_use_distinct, ['crash_id', 'unit_nbr'])
+    .join(units_use_distinct.filter(col("VEH_BODY_STYL_ID").isin('SPORT UTILITY VEHICLE', 'PASSENGER CAR, 4-DOOR', 'PASSENGER CAR, 2-DOOR', 'POLICE CAR/TRUCK')), ['crash_id', 'unit_nbr'])
     .groupBy('VEH_MAKE_ID')
     .count()
-    .orderBy(col('count').desc())
+    .orderBy([col('count').desc(), col("VEH_MAKE_ID")])
     .limit(5)
     )
 
@@ -93,7 +93,7 @@ if __name__ == "__main__" :
     ### A7
     Window_Spec  = Window.partitionBy(["VEH_BODY_STYL_ID"]).orderBy(col("count").desc())
 
-    a7 = (units_use_distinct.filter("VEH_BODY_STYL_ID not in ('UNKNOWN', 'NA')")
+    a7 = (units_use_distinct.filter("VEH_BODY_STYL_ID not in ('UNKNOWN', 'NA', 'NOT REPORTED')")
     .join(primary_person_use, ['crash_id', 'unit_nbr'])
     .groupBy(["VEH_BODY_STYL_ID", "PRSN_ETHNICITY_ID"])
     .count()
